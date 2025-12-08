@@ -209,83 +209,100 @@ elif menu == "RFM Analysis":
 
     st.pyplot(fig)
 
-
 # ======================================================================
-# PAGE 4 — CLUSTERING (MATCH NOTEBOOK)
+# PAGE 4 — CLUSTERING (FINAL MATCH NOTEBOOK)
 # ======================================================================
 elif menu == "Clustering":
 
     st.header("🎯 KMeans Clustering — MATCH NOTEBOOK")
 
     if "rfm" not in st.session_state:
-        st.warning("Jalankan RFM dulu.")
+        st.warning("Jalankan RFM Analysis dulu.")
         st.stop()
 
+    # COPY EXACT NOTEBOOK BEHAVIOR
     rfm = st.session_state["rfm"].copy()
 
+    # 1. SCALING
     scaler = StandardScaler()
-    scaled = scaler.fit_transform(rfm[["Recency","Frequency","Monetary"]])
+    scaled = scaler.fit_transform(rfm[["Recency", "Frequency", "Monetary"]])
 
-    # PCA EXACT MATCH
+    # 2. PCA EXACT
     pca = PCA(n_components=2)
     comps = pca.fit_transform(scaled)
     rfm["PCA1"], rfm["PCA2"] = comps[:,0], comps[:,1]
 
-    # Slider cluster — default 3 (match notebook)
+    # 3. SAME K AS NOTEBOOK (default = 3)
     k = st.slider("Jumlah cluster", 2, 10, 3)
 
-    model = KMeans(n_clusters=k, random_state=42)
-    rfm["Cluster"] = model.fit_predict(scaled)
+    # 4. KMeans EXACT match
+    kmeans = KMeans(n_clusters=k, init='k-means++', max_iter=300,
+                    n_init=10, random_state=42)
+    rfm["Cluster"] = kmeans.fit_predict(scaled)
 
+    # SIMPAN
     st.session_state["clustered"] = rfm
 
-    st.subheader("PCA Cluster Visualization (MATCH NOTEBOOK)")
+    # PCA PLOT
+    st.subheader("Visualisasi PCA — MATCH NOTEBOOK")
     fig = plt.figure(figsize=(8,6))
-    sns.scatterplot(data=rfm, x="PCA1", y="PCA2", hue="Cluster",
-                    palette="viridis", s=30, alpha=0.7)
+    sns.scatterplot(
+        x=rfm["PCA1"], y=rfm["PCA2"],
+        hue=rfm["Cluster"], palette="viridis",
+        s=30, alpha=0.7
+    )
+    plt.title("Cluster Visualization after PCA (MATCH NOTEBOOK)")
     st.pyplot(fig)
 
+    st.write("Jumlah anggota per cluster:")
+    st.write(rfm["Cluster"].value_counts())
 
 # ======================================================================
-# PAGE 5 — BUSINESS INSIGHTS (MATCH NOTEBOOK)
+# PAGE 5 — BUSINESS INSIGHTS (FINAL MATCH NOTEBOOK)
 # ======================================================================
 elif menu == "Business Insights":
 
     if "clustered" not in st.session_state:
-        st.warning("Jalankan clustering dulu.")
+        st.warning("Jalankan Clustering dulu.")
         st.stop()
 
     rfm = st.session_state["clustered"]
-    st.header("💡 Business Insights MATCH NOTEBOOK")
 
-    # Segment rule identical to notebook logic
-    def seg(row):
-        if row["Recency"] < rfm["Recency"].median() and row["Frequency"] > rfm["Frequency"].median():
+    st.header("💡 Business Insights — MATCH NOTEBOOK")
+
+    # === EXACT SEGMENTATION LOGIC (MATCH NOTEBOOK) ===
+    rec_med = rfm["Recency"].median()
+    freq_med = rfm["Frequency"].median()
+    mon_med = rfm["Monetary"].median()
+
+    def assign_segment(row):
+        if row["Recency"] < rec_med and row["Frequency"] > freq_med:
             return "Champions"
-        elif row["Frequency"] > rfm["Frequency"].median():
+        elif row["Frequency"] > freq_med:
             return "Loyalists"
-        elif row["Monetary"] > rfm["Monetary"].median():
+        elif row["Monetary"] > mon_med:
             return "Big Spenders, low frequency"
-        elif row["Recency"] > rfm["Recency"].median():
+        elif row["Recency"] > rec_med:
             return "At-risk"
         else:
             return "New but promising"
 
-    rfm["Segment"] = rfm.apply(seg, axis=1)
+    rfm["Segment"] = rfm.apply(assign_segment, axis=1)
 
+    # === HEATMAP EXACT MATCH ===
     pivot = pd.crosstab(rfm["Cluster"], rfm["Segment"])
 
+    st.subheader("Distribusi Segmen Pelanggan per Cluster — MATCH NOTEBOOK")
     fig = plt.figure(figsize=(10,6))
     sns.heatmap(pivot, annot=True, cmap="YlGnBu", fmt="g")
-    plt.title("Distribusi Segmen Pelanggan per Cluster — MATCH NOTEBOOK")
     st.pyplot(fig)
 
-    st.subheader("Interpretasi Segmen Pelanggan")
+    st.subheader("Interpretasi:")
     st.write("""
-    • **Champions** — Sangat aktif, spending tinggi  
-    • **Loyalists** — Sering transaksi, bisa di-upgrade  
-    • **Big Spenders** — Transaksi jarang, nominal tinggi  
-    • **At-risk** — Lama tidak belanja  
-    • **New but promising** — Pelanggan baru yang potensial  
+    • **Champions** → Aktif & profitable, fokuskan loyalty program  
+    • **Loyalists** → Sering beli, target upselling/cross-selling  
+    • **Big Spenders** → Nilai belanja tinggi tapi jarang beli  
+    • **At-risk** → Lama tidak transaksi, perlu reactivation campaign  
+    • **New but promising** → Pelanggan baru yang potensial  
     """)
 
