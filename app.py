@@ -80,8 +80,7 @@ elif menu == "EDA Visualizations":
         "Jumlah Transaksi per Hari",
         "Top 10 Produk",
         "Transaksi per Jam",
-        "Transaksi per Bulan",
-        "PCA Preview"
+        "Transaksi per Bulan"
     ])
 
     # 1. Distribusi Quantity
