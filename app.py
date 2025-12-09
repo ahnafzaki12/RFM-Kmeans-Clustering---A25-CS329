@@ -65,9 +65,15 @@ menu = st.sidebar.radio(
 if menu == "Dataset Overview":
     st.header("Dataset Preview")
     st.dataframe(df.head())
+    st.markdown("""
+    ### Interpretasi Notebook
 
-    st.subheader("Top 10 Countries")
-    st.write(df["Country"].value_counts().head(10))
+    Cluster 0 → campuran pelanggan sangat bernilai dan pelanggan berisiko tinggi.  
+    Cluster 1 → mayoritas pelanggan At-risk dengan aktivitas rendah.  
+    Cluster 2 → pelanggan baru yang potensial serta beberapa pelanggan bernilai tinggi.
+
+    Setiap cluster memerlukan strategi berbeda untuk retensi, upselling, dan nurturing pelanggan.
+    """)
 
 # =====================================================================
 # PAGE 2 — EDA VISUALIZATIONS (MATCH NOTEBOOK)
@@ -92,8 +98,7 @@ elif menu == "EDA Visualizations":
 
         st.markdown("""
         **Deskripsi Notebook:**  
-        Distribusi Quantity menunjukkan variasi jumlah barang yang dibeli pelanggan dalam setiap transaksi.  
-        Pola ini membantu memahami apakah mayoritas transaksi memiliki jumlah barang kecil atau besar.
+          Distribusi Quantity pada diagram tampak right-skewed, dengan sebagian besar transaksi berada pada jumlah kecil (terutama 1–3 unit), sementara beberapa puncak jelas muncul pada nilai seperti 6, 12, dan 24 yang menunjukkan pola pembelian dalam paket standar. Nilai Quantity besar relatif jarang, sehingga distribusinya tetap wajar dan mencerminkan karakteristik umum transaksi retail, mayoritas pelanggan membeli sedikit, dan sebagian produk dijual dalam kelipatan tertentu.
         """)
 
     # 2. Distribusi Price cleaned
