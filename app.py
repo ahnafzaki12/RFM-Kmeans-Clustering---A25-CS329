@@ -110,9 +110,7 @@ elif menu == "EDA Visualizations":
 
         st.markdown("""
         **Deskripsi Notebook:**  
-        Distribusi Price setelah pembersihan menunjukkan pola *right-skewed*,  
-        mayoritas harga berada di kisaran 0.5–4, dengan puncak pada 1–2.  
-        Produk mahal hanya sedikit muncul di kisaran 10–15.
+          Distribusi Price setelah pembersihan menunjukkan pola right-skewed, di mana sebagian besar harga terkonsentrasi pada rentang sekitar 0.5–4 dengan puncak tertinggi di kisaran 1–2. Setelah itu frekuensi menurun tajam, hanya terlihat beberapa puncak kecil di sekitar harga 4–8, sedangkan harga di atas kisaran tersebut (mendekati 10–15) muncul sangat jarang. Pola ini menunjukkan bahwa mayoritas produk yang terjual berharga murah hingga menengah, sementara produk dengan harga tinggi hanya menyumbang sebagian kecil dari transaksi.
         """)
 
     # 3. Transaksi per Hari
@@ -127,9 +125,7 @@ elif menu == "EDA Visualizations":
 
         st.markdown("""
         **Deskripsi Notebook:**  
-        Jumlah transaksi harian meningkat signifikan dari 2010 sampai akhir 2011.  
-        Awal tahun berkisar 500–1500 transaksi/hari dan mencapai puncak mendekati 3000.  
-        Ini mencerminkan peningkatan aktivitas penjualan terutama menjelang musim liburan.
+          Jumlah transaksi per hari menunjukkan pola yang sangat fluktuatif dengan kecenderungan meningkat dari awal 2010 hingga akhir 2011. Pada awal periode, transaksi harian berada di kisaran 500–1500, kemudian mengalami kenaikan signifikan pada akhir 2010 dengan puncak mendekati 3000 transaksi per hari. Setelah sedikit penurunan di awal 2011, jumlah transaksi kembali meningkat menuju akhir tahun dan mencapai level tertinggi menjelang Desember 2011. Pola ini mencerminkan dinamika musim belanja dan pertumbuhan aktivitas penjualan dari waktu ke waktu.
         """)
 
     # 4. Top Produk
@@ -140,9 +136,7 @@ elif menu == "EDA Visualizations":
 
         st.markdown("""
         **Deskripsi Notebook:**  
-        Produk terlaris didominasi barang dekoratif dan perlengkapan rumah kecil.  
-        *WHITE HANGING HEART T-LIGHT HOLDER* adalah yang paling laris dengan 27.542 unit.  
-        Banyaknya cake cases dan dekorasi menandakan tingginya pembelian barang murah-menengah.
+          Produk dengan jumlah penjualan tertinggi didominasi oleh barang-barang dekoratif dan kebutuhan rumah tangga kecil, dengan WHITE HANGING HEART T-LIGHT HOLDER menjadi produk paling laris dengan 27.542 unit terjual. Disusul oleh ASSORTED COLOUR BIRD ORNAMENT serta berbagai jenis cake cases yang secara konsisten muncul dalam daftar teratas, menandakan tingginya permintaan untuk perlengkapan baking dan barang dekoratif murah. Produk seperti JUMBO BAG RED RETROSPOT, STRAWBERRY CERAMIC TRINKET BOX, hingga REGENCY CAKESTAND 3 TIER juga menunjukkan volume penjualan besar, mencerminkan bahwa pelanggan cenderung membeli barang-barang hadiah, dekorasi, dan perlengkapan rumah dengan harga terjangkau dalam jumlah tinggi.
         """)
 
     # 5. Transaksi per Jam
@@ -155,8 +149,7 @@ elif menu == "EDA Visualizations":
 
         st.markdown("""
         **Deskripsi Notebook:**  
-        Aktivitas transaksi memuncak pada pukul 11.00–14.00, terutama pukul 12.00.  
-        Transaksi rendah pada pagi awal dan sore, menandakan pelanggan memesan saat jam istirahat kerja.
+          Distribusi transaksi per jam menunjukkan bahwa aktivitas penjualan mencapai puncaknya pada jam kerja tengah hari, khususnya antara pukul 11.00 hingga 14.00, dengan lonjakan tertinggi sekitar pukul 12.00. Sebaliknya, jumlah transaksi sangat rendah pada pagi awal dan sore menjelang malam. Pola ini mengindikasikan bahwa pelanggan cenderung melakukan pemesanan pada periode sibuk kerja atau saat istirahat siang, sehingga transaksi menumpuk di sekitar jam-jam tersebut.
         """)
 
     # 6. Transaksi per Bulan
@@ -169,8 +162,7 @@ elif menu == "EDA Visualizations":
 
         st.markdown("""
         **Deskripsi Notebook:**  
-        Transaksi stabil Januari–Agustus, lalu meningkat tajam September–November  
-        dengan puncak pada November karena musim liburan. Desember menurun tetapi masih tinggi.
+          Distribusi transaksi per bulan memperlihatkan pola musiman yang kuat, di mana transaksi relatif stabil dari bulan Januari hingga Agustus, kemudian mulai meningkat signifikan pada bulan September hingga November, dengan puncak tertinggi pada November. Kenaikan ini mencerminkan periode belanja musiman seperti persiapan liburan dan akhir tahun, yang biasanya mendorong aktivitas pembelian lebih tinggi. Setelah puncak tersebut, transaksi kembali menurun pada Desember, meski masih berada di atas rata-rata bulanan.
         """)
 
 
@@ -222,13 +214,7 @@ elif menu == "RFM Analysis":
     st.pyplot(fig)
     st.markdown("""
     ### Deskripsi Notebook
-
-    Distribusi Recency menyebar cukup luas, menandakan banyak pelanggan masih aktif.  
-    Frequency sangat *right-skewed*: mayoritas pelanggan hanya bertransaksi sedikit.  
-    Monetary juga *right-skewed*: sebagian besar pelanggan memiliki nilai belanja rendah–menengah.
-
-    Ini sesuai karakter umum RFM:  
-    banyak pelanggan biasa, sedikit pelanggan sangat bernilai tinggi.
+        Distribusi Recency menunjukkan pola yang cukup menyebar, dengan jumlah pelanggan terbanyak berada pada rentang recency rendah hingga menengah, menandakan banyak pelanggan yang masih relatif aktif. Sementara itu, Distribusi Frequency tampak right-skewed, di mana mayoritas pelanggan bertransaksi hanya beberapa kali, sementara pelanggan dengan frekuensi tinggi jumlahnya jauh lebih sedikit. Sedangkan Distribusi Monetary juga memperlihatkan pola serupa, di mana sebagian besar pelanggan melakukan pembelian dalam nilai transaksi rendah hingga menengah, dan hanya sedikit yang memiliki total belanja tinggi. Ketiga distribusi ini menggambarkan karakteristik umum data RFM: banyak pelanggan biasa, sedikit pelanggan sangat aktif dan bernilai tinggi.
     """)
 
 # =====================================================================
@@ -236,7 +222,7 @@ elif menu == "RFM Analysis":
 # =====================================================================
 elif menu == "Clustering":
 
-    st.header("🎯 Clustering — MATCH NOTEBOOK")
+    st.header("Clustering")
 
     if "rfm" not in st.session_state:
         st.warning("Silakan jalankan RFM Analysis terlebih dahulu.")
@@ -267,13 +253,7 @@ elif menu == "Clustering":
     st.pyplot(fig)
     st.markdown("""
     ### Deskripsi Notebook
-
-    Visualisasi PCA menunjukkan pemisahan yang jelas antar cluster.  
-    Cluster ungu adalah kelompok terbesar dengan karakteristik umum.  
-    Cluster kuning dan hijau lebih terfokus, mencerminkan perbedaan kuat  
-    dalam pola belanja dan aktivitas pelanggan.
-
-    Ini membuktikan bahwa model KMeans berhasil melakukan segmentasi pelanggan dengan baik.
+        Visualisasi cluster setelah PCA menunjukkan pemisahan yang jelas antara tiga kelompok pelanggan, di mana setiap cluster menempati area berbeda pada ruang PCA1 dan PCA2. Cluster berwarna ungu tampak merupakan kelompok terbesar, mencakup pelanggan dengan karakteristik RFM yang lebih umum. Cluster kuning dan hijau berada pada posisi berbeda dan lebih terfokus, menandakan segmentasi pelanggan berdasarkan pola perilaku yang cukup berbeda, seperti nilai belanja, frekuensi pembelian, atau tingkat aktivitas. Pemisahan yang rapi ini menunjukkan bahwa metode clustering berhasil mengidentifikasi tiga segmen pelanggan yang memiliki perbedaan nyata dalam perilaku mereka
     """)
 
 
@@ -331,11 +311,37 @@ elif menu == "Business Insights":
     st.markdown("""
     ### Interpretasi Notebook
 
-    Cluster 0 → campuran pelanggan sangat bernilai dan pelanggan berisiko tinggi.  
-    Cluster 1 → mayoritas pelanggan At-risk dengan aktivitas rendah.  
-    Cluster 2 → pelanggan baru yang potensial serta beberapa pelanggan bernilai tinggi.
+    Cluster 0
+    Karakteristik utama cluster ini berisi campuran pelanggan bernilai tinggi dan pelanggan yang cukup berisiko, dengan jumlah besar di segmen At-risk dan Champions.
+    - At-risk (3.086 pelanggan): Banyak pelanggan dalam kelompok ini memiliki potensi churn, sehingga perlu perhatian khusus seperti reminder pembelian, email re-engagement, atau diskon khusus.
+    - Big Spenders, Low Frequency (116 pelanggan): Mereka mengeluarkan banyak uang namun tidak sering bertransaksi. Penawaran personal atau program yang meningkatkan frekuensi belanja bisa mendorong mereka lebih aktif.
+    - Champions (3.127 pelanggan): Kelompok yang sangat bernilai—mereka aktif dan memiliki Monetary tinggi. Mereka cocok diberikan reward premium, early access produk baru, atau VIP program.
+    - Loyalists (50 pelanggan): Pelanggan setia yang rutin membeli. Tingkatkan loyalitas mereka dengan penawaran membership atau hadiah loyalitas.
+    - New but Promising (0 pelanggan): Tidak ada pelanggan baru dengan potensi tinggi pada cluster ini.
 
-    Setiap cluster memerlukan strategi berbeda untuk retensi, upselling, dan nurturing pelanggan.
+      Strategi untuk Cluster 0
+      Fokus pada retensi pelanggan bernilai tinggi seperti Champions dan Loyalists dengan program eksklusif dan pengalaman yang dipersonalisasi. Sementara itu, pelanggan At-risk perlu segera diaktifkan kembali melalui win-back campaigns, reminder pembelian, atau potongan harga. Targetkan Big Spenders dengan penawaran premium untuk meningkatkan frekuensi.
+    Cluster 1
+    Karakteristik utama cluster ini didominasi oleh pelanggan At-risk, dengan hanya sebagian kecil pelanggan bernilai tinggi.
+    - At-risk (8.833 pelanggan): Ini segmen terbesar dalam cluster, sehingga merupakan prioritas utama untuk kampanye reaktivasi. Berikan promosi yang kuat untuk mencegah churn lebih lanjut.
+    - Big Spenders, Low Frequency (1.414 pelanggan): Pelanggan yang jarang berbelanja tetapi mengeluarkan uang cukup banyak. Strategi upsell atau rekomendasi produk personal bisa membantu.
+    - Champions (119 pelanggan): Walaupun jumlahnya kecil, mereka tetap sangat berharga. Berikan pengalaman premium agar mereka tetap setia.
+    - Loyalists (88 pelanggan): Pelanggan dengan engagement stabil. Tawarkan loyalty reward, poin belanja, atau penawaran eksklusif.
+    - New but Promising (321 pelanggan): Pelanggan baru yang menunjukkan potensi. Perlu nurturing seperti welcome series email, penawaran pertama, atau edukasi produk.
+
+      Strategi untuk Cluster 1
+      Prioritaskan re-engagement massal, terutama untuk segmen At-risk yang sangat besar. Gunakan email marketing, promo besar, atau bundle produk untuk menarik mereka kembali. Pelanggan bernilai tinggi seperti Champions dan Big Spenders perlu dipertahankan melalui program VIP atau rekomendasi produk yang dipersonalisasi. Segmen New but Promising perlu nurturance agar berkembang menjadi pelanggan loyal.
+
+    Cluster 2
+    Karakteristik utama cluster ini memiliki banyak pelanggan yang baru berkembang dan sejumlah pelanggan bernilai tinggi.
+    - At-risk (0 pelanggan): Tidak ada pelanggan yang berisiko pada cluster ini.
+    - Big Spenders, Low Frequency (1.368 pelanggan): Pelanggan bernilai besar namun dengan frekuensi rendah. Berikan insentif untuk mendorong repeat purchase.
+    - Champions (1.895 pelanggan): Pelanggan setia dan bernilai tinggi. Pertahankan momentum dengan reward eksklusif dan layanan premium.
+    - Loyalists (923 pelanggan): Pelanggan aktif yang rajin bertransaksi. Tawarkan program loyalitas lanjutan untuk memperkuat hubungan.
+    - New but Promising (5.281 pelanggan): Segmen terbesar dalam cluster ini. Mereka adalah pelanggan baru yang menunjukkan potensi besar dan harus di-nurture agar naik ke segmen loyal.
+
+      Strategi untuk Cluster 2
+      Fokus pada mendorong pertumbuhan pelanggan baru melalui edukasi produk, promo sambutan, dan program pengenalan brand. Loyalists dan Champions perlu dipertahankan melalui penghargaan eksklusif, poin loyalitas, dan pengalaman personal. Sementara itu, Big Spenders dapat diarahkan untuk meningkatkan frekuensi belanja melalui rekomendasi produk dan penawaran time-limited
     """)
  
 
