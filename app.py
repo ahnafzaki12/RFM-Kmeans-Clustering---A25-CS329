@@ -10,10 +10,9 @@ from sklearn.decomposition import PCA
 from sklearn.metrics import silhouette_score
 
 st.set_page_config(page_title="Customer Segmentation MATCH NOTEBOOK",
-                   page_icon="📊",
                    layout="wide")
 
-st.title("📊 Customer Segmentation Dashboard — MATCH NOTEBOOK VERSION")
+st.title("Customer Segmentation Dashboard")
 
 # =====================================================================
 # LOAD + PREPROCESSING IDENTIK NOTEBOOK
@@ -64,7 +63,7 @@ menu = st.sidebar.radio(
 # PAGE 1 — DATASET OVERVIEW
 # =====================================================================
 if menu == "Dataset Overview":
-    st.header("📂 Dataset Preview")
+    st.header("Dataset Preview")
     st.dataframe(df.head())
 
     st.subheader("Top 10 Countries")
@@ -75,7 +74,7 @@ if menu == "Dataset Overview":
 # =====================================================================
 elif menu == "EDA Visualizations":
 
-    tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
+    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
         "Distribusi Quantity",
         "Distribusi Price",
         "Jumlah Transaksi per Hari",
@@ -92,12 +91,25 @@ elif menu == "EDA Visualizations":
         sns.histplot(df["Quantity"], kde=True)
         st.pyplot(fig)
 
+        st.markdown("""
+        **Deskripsi Notebook:**  
+        Distribusi Quantity menunjukkan variasi jumlah barang yang dibeli pelanggan dalam setiap transaksi.  
+        Pola ini membantu memahami apakah mayoritas transaksi memiliki jumlah barang kecil atau besar.
+        """)
+
     # 2. Distribusi Price cleaned
     with tab2:
         st.subheader("Distribusi Price (1%–99%)")
         fig = plt.figure(figsize=(8,4))
         sns.histplot(df_clean_price["Price"], kde=True, bins=50)
         st.pyplot(fig)
+
+        st.markdown("""
+        **Deskripsi Notebook:**  
+        Distribusi Price setelah pembersihan menunjukkan pola *right-skewed*,  
+        mayoritas harga berada di kisaran 0.5–4, dengan puncak pada 1–2.  
+        Produk mahal hanya sedikit muncul di kisaran 10–15.
+        """)
 
     # 3. Transaksi per Hari
     with tab3:
@@ -109,11 +121,25 @@ elif menu == "EDA Visualizations":
         plt.plot(trans)
         st.pyplot(fig)
 
+        st.markdown("""
+        **Deskripsi Notebook:**  
+        Jumlah transaksi harian meningkat signifikan dari 2010 sampai akhir 2011.  
+        Awal tahun berkisar 500–1500 transaksi/hari dan mencapai puncak mendekati 3000.  
+        Ini mencerminkan peningkatan aktivitas penjualan terutama menjelang musim liburan.
+        """)
+
     # 4. Top Produk
     with tab4:
         st.subheader("Top 10 Produk")
         top10 = df.groupby("Description")["Quantity"].sum().sort_values(ascending=False).head(10)
         st.write(top10)
+
+        st.markdown("""
+        **Deskripsi Notebook:**  
+        Produk terlaris didominasi barang dekoratif dan perlengkapan rumah kecil.  
+        *WHITE HANGING HEART T-LIGHT HOLDER* adalah yang paling laris dengan 27.542 unit.  
+        Banyaknya cake cases dan dekorasi menandakan tingginya pembelian barang murah-menengah.
+        """)
 
     # 5. Transaksi per Jam
     with tab5:
@@ -123,6 +149,12 @@ elif menu == "EDA Visualizations":
         sns.countplot(x="Hour", data=df)
         st.pyplot(fig)
 
+        st.markdown("""
+        **Deskripsi Notebook:**  
+        Aktivitas transaksi memuncak pada pukul 11.00–14.00, terutama pukul 12.00.  
+        Transaksi rendah pada pagi awal dan sore, menandakan pelanggan memesan saat jam istirahat kerja.
+        """)
+
     # 6. Transaksi per Bulan
     with tab6:
         st.subheader("Transaksi per Bulan")
@@ -131,25 +163,19 @@ elif menu == "EDA Visualizations":
         sns.countplot(x="Month", data=df)
         st.pyplot(fig)
 
-    # 7. PCA Preview (tidak digunakan untuk clustering)
-    with tab7:
-        st.subheader("PCA Preview")
-        sample = df.sample(3000, random_state=42)
-        scaler = StandardScaler()
-        scaled = scaler.fit_transform(sample[["Quantity", "Price"]])
-        pca = PCA(2)
-        comp = pca.fit_transform(scaled)
+        st.markdown("""
+        **Deskripsi Notebook:**  
+        Transaksi stabil Januari–Agustus, lalu meningkat tajam September–November  
+        dengan puncak pada November karena musim liburan. Desember menurun tetapi masih tinggi.
+        """)
 
-        fig = plt.figure(figsize=(6,5))
-        sns.scatterplot(x=comp[:,0], y=comp[:,1], alpha=0.5)
-        st.pyplot(fig)
 
 # =====================================================================
 # PAGE 3 — RFM ANALYSIS (MATCH NOTEBOOK)
 # =====================================================================
 elif menu == "RFM Analysis":
 
-    st.header("📊 RFM Analysis — MATCH NOTEBOOK")
+    st.header("RFM Analysis")
 
     # Hitung Recency
     latest = df["InvoiceDate"].max()
@@ -190,6 +216,16 @@ elif menu == "RFM Analysis":
     ax[2].set_title("Distribusi Monetary")
 
     st.pyplot(fig)
+    st.markdown("""
+    ### Deskripsi Notebook
+
+    Distribusi Recency menyebar cukup luas, menandakan banyak pelanggan masih aktif.  
+    Frequency sangat *right-skewed*: mayoritas pelanggan hanya bertransaksi sedikit.  
+    Monetary juga *right-skewed*: sebagian besar pelanggan memiliki nilai belanja rendah–menengah.
+
+    Ini sesuai karakter umum RFM:  
+    banyak pelanggan biasa, sedikit pelanggan sangat bernilai tinggi.
+    """)
 
 # =====================================================================
 # PAGE 4 — CLUSTERING (MATCH NOTEBOOK)
@@ -225,6 +261,17 @@ elif menu == "Clustering":
     sns.scatterplot(x=rfm["PCA1"], y=rfm["PCA2"], hue=rfm["Cluster"], palette="viridis")
     plt.title("Cluster Visualization after PCA — MATCH NOTEBOOK")
     st.pyplot(fig)
+    st.markdown("""
+    ### Deskripsi Notebook
+
+    Visualisasi PCA menunjukkan pemisahan yang jelas antar cluster.  
+    Cluster ungu adalah kelompok terbesar dengan karakteristik umum.  
+    Cluster kuning dan hijau lebih terfokus, mencerminkan perbedaan kuat  
+    dalam pola belanja dan aktivitas pelanggan.
+
+    Ini membuktikan bahwa model KMeans berhasil melakukan segmentasi pelanggan dengan baik.
+    """)
+
 
 # =====================================================================
 # PAGE 5 — BUSINESS INSIGHTS (MATCH NOTEBOOK)
@@ -270,10 +317,21 @@ elif menu == "Business Insights":
 
     st.subheader("Interpretasi dan Strategi Bisnis")
     st.write("""
-    • Champions → Beri reward eksklusif  
-    • Loyalists → Dorong upselling  
-    • Big Spenders → Tingkatkan frekuensi  
-    • New but promising → Nurturing program  
-    • At-risk → Win-back campaign  
+    • Champions → Beri reward eksklusif
+    • Loyalists → Dorong upselling
+    • Big Spenders → Tingkatkan frekuensi
+    • New but promising → Nurturing program
+    • At-risk → Win-back campaign
     """)
+
+    st.markdown("""
+    ### Interpretasi Notebook
+
+    Cluster 0 → campuran pelanggan sangat bernilai dan pelanggan berisiko tinggi.  
+    Cluster 1 → mayoritas pelanggan At-risk dengan aktivitas rendah.  
+    Cluster 2 → pelanggan baru yang potensial serta beberapa pelanggan bernilai tinggi.
+
+    Setiap cluster memerlukan strategi berbeda untuk retensi, upselling, dan nurturing pelanggan.
+    """)
+ 
 
