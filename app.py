@@ -70,14 +70,14 @@ if menu == "Dataset Overview":
     Dataset Online Retail II berisi seluruh transaksi dari sebuah perusahaan ritel daring yang berbasis di Inggris dan beroperasi tanpa toko fisik. Data mencakup periode 1 Desember 2009 hingga 9 Desember 2011, dengan fokus pada penjualan produk giftware (hadiah dan dekorasi) yang unik. Sebagian besar pelanggan merupakan wholesaler yang membeli dalam jumlah besar untuk kebutuhan bisnis.
     Struktur Atribut
     Dataset memiliki delapan atribut utama:
-        - InvoiceNo - Nomor faktur unik untuk setiap transaksi. Jika diawali huruf "C", transaksi tersebut adalah pembatalan.
-        - StockCode — Kode unik untuk setiap produk.
-        - Description — Nama atau deskripsi produk.
-        - Quantity — Jumlah unit produk yang dibeli dalam satu transaksi. Nilai negatif dapat muncul pada transaksi return/cancellation.
-        - InvoiceDate — Tanggal dan waktu transaksi terjadi.
-        - UnitPrice — Harga satuan produk dalam Pound Sterling (£).
-        - CustomerID — ID pelanggan unik (hanya muncul untuk pelanggan teridentifikasi)
-        - Country — Negara tempat pelanggan berada.
+    - InvoiceNo - Nomor faktur unik untuk setiap transaksi. Jika diawali huruf "C", transaksi tersebut adalah pembatalan.
+    - StockCode — Kode unik untuk setiap produk.
+    - Description — Nama atau deskripsi produk.
+    - Quantity — Jumlah unit produk yang dibeli dalam satu transaksi. Nilai negatif dapat muncul pada transaksi return/cancellation.
+    - InvoiceDate — Tanggal dan waktu transaksi terjadi.
+    - UnitPrice — Harga satuan produk dalam Pound Sterling (£).
+    - CustomerID — ID pelanggan unik (hanya muncul untuk pelanggan teridentifikasi)
+    - Country — Negara tempat pelanggan berada.
     Setiap cluster memerlukan strategi berbeda untuk retensi, upselling, dan nurturing pelanggan.
     """)
 
@@ -167,7 +167,7 @@ elif menu == "EDA Visualizations":
         st.pyplot(fig)
 
         st.markdown("""
-        **Intrepretasi Transaksi per Bulan:**  
+        **Intrepretasi Transaksi per Bulan**  
           Distribusi transaksi per bulan memperlihatkan pola musiman yang kuat, di mana transaksi relatif stabil dari bulan Januari hingga Agustus, kemudian mulai meningkat signifikan pada bulan September hingga November, dengan puncak tertinggi pada November. Kenaikan ini mencerminkan periode belanja musiman seperti persiapan liburan dan akhir tahun, yang biasanya mendorong aktivitas pembelian lebih tinggi. Setelah puncak tersebut, transaksi kembali menurun pada Desember, meski masih berada di atas rata-rata bulanan.
         """)
 
@@ -219,8 +219,8 @@ elif menu == "RFM Analysis":
 
     st.pyplot(fig)
     st.markdown("""
-    **Intrepretasi Distribusi RFM
-        Distribusi Recency menunjukkan pola yang cukup menyebar, dengan jumlah pelanggan terbanyak berada pada rentang recency rendah hingga menengah, menandakan banyak pelanggan yang masih relatif aktif. Sementara itu, Distribusi Frequency tampak right-skewed, di mana mayoritas pelanggan bertransaksi hanya beberapa kali, sementara pelanggan dengan frekuensi tinggi jumlahnya jauh lebih sedikit. Sedangkan Distribusi Monetary juga memperlihatkan pola serupa, di mana sebagian besar pelanggan melakukan pembelian dalam nilai transaksi rendah hingga menengah, dan hanya sedikit yang memiliki total belanja tinggi. Ketiga distribusi ini menggambarkan karakteristik umum data RFM: banyak pelanggan biasa, sedikit pelanggan sangat aktif dan bernilai tinggi.
+    **Intrepretasi Distribusi RFM**
+      Distribusi Recency menunjukkan pola yang cukup menyebar, dengan jumlah pelanggan terbanyak berada pada rentang recency rendah hingga menengah, menandakan banyak pelanggan yang masih relatif aktif. Sementara itu, Distribusi Frequency tampak right-skewed, di mana mayoritas pelanggan bertransaksi hanya beberapa kali, sementara pelanggan dengan frekuensi tinggi jumlahnya jauh lebih sedikit. Sedangkan Distribusi Monetary juga memperlihatkan pola serupa, di mana sebagian besar pelanggan melakukan pembelian dalam nilai transaksi rendah hingga menengah, dan hanya sedikit yang memiliki total belanja tinggi. Ketiga distribusi ini menggambarkan karakteristik umum data RFM: banyak pelanggan biasa, sedikit pelanggan sangat aktif dan bernilai tinggi.
     """)
 
 # =====================================================================
@@ -258,8 +258,8 @@ elif menu == "Clustering":
     plt.title("Cluster Visualization PCA")
     st.pyplot(fig)
     st.markdown("""
-    **Intrepretasi PCA
-        Visualisasi cluster setelah PCA menunjukkan pemisahan yang jelas antara tiga kelompok pelanggan, di mana setiap cluster menempati area berbeda pada ruang PCA1 dan PCA2. Cluster berwarna ungu tampak merupakan kelompok terbesar, mencakup pelanggan dengan karakteristik RFM yang lebih umum. Cluster kuning dan hijau berada pada posisi berbeda dan lebih terfokus, menandakan segmentasi pelanggan berdasarkan pola perilaku yang cukup berbeda, seperti nilai belanja, frekuensi pembelian, atau tingkat aktivitas. Pemisahan yang rapi ini menunjukkan bahwa metode clustering berhasil mengidentifikasi tiga segmen pelanggan yang memiliki perbedaan nyata dalam perilaku mereka
+    **Intrepretasi PCA**
+      Visualisasi cluster setelah PCA menunjukkan pemisahan yang jelas antara tiga kelompok pelanggan, di mana setiap cluster menempati area berbeda pada ruang PCA1 dan PCA2. Cluster berwarna ungu tampak merupakan kelompok terbesar, mencakup pelanggan dengan karakteristik RFM yang lebih umum. Cluster kuning dan hijau berada pada posisi berbeda dan lebih terfokus, menandakan segmentasi pelanggan berdasarkan pola perilaku yang cukup berbeda, seperti nilai belanja, frekuensi pembelian, atau tingkat aktivitas. Pemisahan yang rapi ini menunjukkan bahwa metode clustering berhasil mengidentifikasi tiga segmen pelanggan yang memiliki perbedaan nyata dalam perilaku mereka
     """)
 
 
@@ -274,7 +274,7 @@ elif menu == "Business Insights":
 
     rfm = st.session_state["clustered"]
 
-    st.header("💡 Business Insights — MATCH NOTEBOOK")
+    st.header("Business Insights")
 
     # ===== SEGMENTATION (exact Notebook logic) =====
     rec_med = rfm["Recency"].median()
