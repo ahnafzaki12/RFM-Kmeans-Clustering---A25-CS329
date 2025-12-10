@@ -103,7 +103,7 @@ elif menu == "EDA Visualizations":
         st.pyplot(fig)
 
         st.markdown("""
-        ###Intrepretasi Distribusi Quantity
+        ### Intrepretasi Distribusi Quantity
           Distribusi Quantity pada diagram tampak right-skewed, dengan sebagian besar transaksi berada pada jumlah kecil (terutama 1–3 unit), sementara beberapa puncak jelas muncul pada nilai seperti 6, 12, dan 24 yang menunjukkan pola pembelian dalam paket standar. Nilai Quantity besar relatif jarang, sehingga distribusinya tetap wajar dan mencerminkan karakteristik umum transaksi retail, mayoritas pelanggan membeli sedikit, dan sebagian produk dijual dalam kelipatan tertentu.
         """)
 
@@ -115,7 +115,7 @@ elif menu == "EDA Visualizations":
         st.pyplot(fig)
 
         st.markdown("""
-        ###Intrepretasi Distribusi Price
+        ### Intrepretasi Distribusi Price
           Distribusi Price setelah pembersihan menunjukkan pola right-skewed, di mana sebagian besar harga terkonsentrasi pada rentang sekitar 0.5–4 dengan puncak tertinggi di kisaran 1–2. Setelah itu frekuensi menurun tajam, hanya terlihat beberapa puncak kecil di sekitar harga 4–8, sedangkan harga di atas kisaran tersebut (mendekati 10–15) muncul sangat jarang. Pola ini menunjukkan bahwa mayoritas produk yang terjual berharga murah hingga menengah, sementara produk dengan harga tinggi hanya menyumbang sebagian kecil dari transaksi.
         """)
 
@@ -130,7 +130,7 @@ elif menu == "EDA Visualizations":
         st.pyplot(fig)
 
         st.markdown("""
-        ###Intrepretasi Transaksi per Hari
+        ### Intrepretasi Transaksi per Hari
           Jumlah transaksi per hari menunjukkan pola yang sangat fluktuatif dengan kecenderungan meningkat dari awal 2010 hingga akhir 2011. Pada awal periode, transaksi harian berada di kisaran 500–1500, kemudian mengalami kenaikan signifikan pada akhir 2010 dengan puncak mendekati 3000 transaksi per hari. Setelah sedikit penurunan di awal 2011, jumlah transaksi kembali meningkat menuju akhir tahun dan mencapai level tertinggi menjelang Desember 2011. Pola ini mencerminkan dinamika musim belanja dan pertumbuhan aktivitas penjualan dari waktu ke waktu.
         """)
 
@@ -141,7 +141,7 @@ elif menu == "EDA Visualizations":
         st.write(top10)
 
         st.markdown("""
-        ###Intrepretasi Top 10 Produk
+        ### Intrepretasi Top 10 Produk
           Produk dengan jumlah penjualan tertinggi didominasi oleh barang-barang dekoratif dan kebutuhan rumah tangga kecil, dengan WHITE HANGING HEART T-LIGHT HOLDER menjadi produk paling laris dengan 27.542 unit terjual. Disusul oleh ASSORTED COLOUR BIRD ORNAMENT serta berbagai jenis cake cases yang secara konsisten muncul dalam daftar teratas, menandakan tingginya permintaan untuk perlengkapan baking dan barang dekoratif murah. Produk seperti JUMBO BAG RED RETROSPOT, STRAWBERRY CERAMIC TRINKET BOX, hingga REGENCY CAKESTAND 3 TIER juga menunjukkan volume penjualan besar, mencerminkan bahwa pelanggan cenderung membeli barang-barang hadiah, dekorasi, dan perlengkapan rumah dengan harga terjangkau dalam jumlah tinggi.
         """)
 
@@ -154,7 +154,7 @@ elif menu == "EDA Visualizations":
         st.pyplot(fig)
 
         st.markdown("""
-        ###Intrepretasi Transaksi per Jam
+        ### Intrepretasi Transaksi per Jam
           Distribusi transaksi per jam menunjukkan bahwa aktivitas penjualan mencapai puncaknya pada jam kerja tengah hari, khususnya antara pukul 11.00 hingga 14.00, dengan lonjakan tertinggi sekitar pukul 12.00. Sebaliknya, jumlah transaksi sangat rendah pada pagi awal dan sore menjelang malam. Pola ini mengindikasikan bahwa pelanggan cenderung melakukan pemesanan pada periode sibuk kerja atau saat istirahat siang, sehingga transaksi menumpuk di sekitar jam-jam tersebut.
         """)
 
@@ -167,7 +167,7 @@ elif menu == "EDA Visualizations":
         st.pyplot(fig)
 
         st.markdown("""
-        ###Intrepretasi Transaksi per Bulan
+        ### Intrepretasi Transaksi per Bulan
           Distribusi transaksi per bulan memperlihatkan pola musiman yang kuat, di mana transaksi relatif stabil dari bulan Januari hingga Agustus, kemudian mulai meningkat signifikan pada bulan September hingga November, dengan puncak tertinggi pada November. Kenaikan ini mencerminkan periode belanja musiman seperti persiapan liburan dan akhir tahun, yang biasanya mendorong aktivitas pembelian lebih tinggi. Setelah puncak tersebut, transaksi kembali menurun pada Desember, meski masih berada di atas rata-rata bulanan.
         """)
 
@@ -219,7 +219,7 @@ elif menu == "RFM Analysis":
 
     st.pyplot(fig)
     st.markdown("""
-    **Intrepretasi Distribusi RFM**
+    ### Intrepretasi Distribusi RFM
       Distribusi Recency menunjukkan pola yang cukup menyebar, dengan jumlah pelanggan terbanyak berada pada rentang recency rendah hingga menengah, menandakan banyak pelanggan yang masih relatif aktif. Sementara itu, Distribusi Frequency tampak right-skewed, di mana mayoritas pelanggan bertransaksi hanya beberapa kali, sementara pelanggan dengan frekuensi tinggi jumlahnya jauh lebih sedikit. Sedangkan Distribusi Monetary juga memperlihatkan pola serupa, di mana sebagian besar pelanggan melakukan pembelian dalam nilai transaksi rendah hingga menengah, dan hanya sedikit yang memiliki total belanja tinggi. Ketiga distribusi ini menggambarkan karakteristik umum data RFM: banyak pelanggan biasa, sedikit pelanggan sangat aktif dan bernilai tinggi.
     """)
 
@@ -258,7 +258,7 @@ elif menu == "Clustering":
     plt.title("Cluster Visualization PCA")
     st.pyplot(fig)
     st.markdown("""
-    **Intrepretasi PCA**
+    ### Intrepretasi PCA
       Visualisasi cluster setelah PCA menunjukkan pemisahan yang jelas antara tiga kelompok pelanggan, di mana setiap cluster menempati area berbeda pada ruang PCA1 dan PCA2. Cluster berwarna ungu tampak merupakan kelompok terbesar, mencakup pelanggan dengan karakteristik RFM yang lebih umum. Cluster kuning dan hijau berada pada posisi berbeda dan lebih terfokus, menandakan segmentasi pelanggan berdasarkan pola perilaku yang cukup berbeda, seperti nilai belanja, frekuensi pembelian, atau tingkat aktivitas. Pemisahan yang rapi ini menunjukkan bahwa metode clustering berhasil mengidentifikasi tiga segmen pelanggan yang memiliki perbedaan nyata dalam perilaku mereka
     """)
 
