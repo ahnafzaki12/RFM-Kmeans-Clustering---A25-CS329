@@ -72,12 +72,19 @@ if menu == "Dataset Overview":
     Struktur Atribut
     Dataset memiliki delapan atribut utama:
         - InvoiceNo - Nomor faktur unik untuk setiap transaksi. Jika diawali huruf "C", transaksi tersebut adalah pembatalan.
+
         - StockCode — Kode unik untuk setiap produk.
+
         - Description — Nama atau deskripsi produk.
+
         - Quantity — Jumlah unit produk yang dibeli dalam satu transaksi. Nilai negatif dapat muncul pada transaksi return/cancellation.
+
         - InvoiceDate — Tanggal dan waktu transaksi terjadi.
+
         - UnitPrice — Harga satuan produk dalam Pound Sterling (£).
+
         - CustomerID — ID pelanggan unik (hanya muncul untuk pelanggan teridentifikasi)
+        
         - Country — Negara tempat pelanggan berada.
     Setiap cluster memerlukan strategi berbeda untuk retensi, upselling, dan nurturing pelanggan.
     """)
