@@ -218,9 +218,15 @@ elif menu == "RFM Analysis":
     ax[2].set_title("Distribusi Monetary")
 
     st.pyplot(fig)
+    st.subheader("Intrepretasi Distribusi RFM")
     st.markdown("""
-    ### Intrepretasi Distribusi RFM
-      Distribusi Recency menunjukkan pola yang cukup menyebar, dengan jumlah pelanggan terbanyak berada pada rentang recency rendah hingga menengah, menandakan banyak pelanggan yang masih relatif aktif. Sementara itu, Distribusi Frequency tampak right-skewed, di mana mayoritas pelanggan bertransaksi hanya beberapa kali, sementara pelanggan dengan frekuensi tinggi jumlahnya jauh lebih sedikit. Sedangkan Distribusi Monetary juga memperlihatkan pola serupa, di mana sebagian besar pelanggan melakukan pembelian dalam nilai transaksi rendah hingga menengah, dan hanya sedikit yang memiliki total belanja tinggi. Ketiga distribusi ini menggambarkan karakteristik umum data RFM: banyak pelanggan biasa, sedikit pelanggan sangat aktif dan bernilai tinggi.
+    ### Distribusi Recency
+    Sebagian besar pelanggan memiliki recency rendah hingga menengah, menunjukkan mereka masih cukup aktif. Namun terdapat kelompok dengan recency tinggi yang sudah lama tidak bertransaksi, sehingga berpotensi masuk kategori at-risk.
+    ### Distribusi Frequency
+    Mayoritas pelanggan hanya bertransaksi 1–5 kali, sementara hanya sedikit pelanggan dengan frekuensi tinggi. Pola ini mencerminkan dominasi pelanggan non-loyal dan sedikit pelanggan sangat loyal yang membawa nilai penting bagi bisnis.
+    ### Distribusi Monetary
+    Nilai belanja total pelanggan didominasi oleh kelompok bernilai rendah–menengah. Hanya sebagian kecil pelanggan yang memberikan kontribusi pendapatan besar, menunjukkan adanya perilaku Pareto (20% pelanggan menghasilkan sebagian besar revenue).
+      
     """)
 
 # =====================================================================
@@ -318,7 +324,7 @@ elif menu == "Business Insights":
 
     Strategi untuk Cluster 0
     Fokus pada retensi pelanggan bernilai tinggi seperti Champions dan Loyalists dengan program eksklusif dan pengalaman yang dipersonalisasi. Sementara itu, pelanggan At-risk perlu segera diaktifkan kembali melalui win-back campaigns, reminder pembelian, atau potongan harga. Targetkan Big Spenders dengan penawaran premium untuk meningkatkan frekuensi.
-   
+
     ### Cluster 1
 
     Karakteristik utama cluster ini didominasi oleh pelanggan At-risk, dengan hanya sebagian kecil pelanggan bernilai tinggi.
@@ -343,5 +349,5 @@ elif menu == "Business Insights":
     Strategi untuk Cluster 2
     Fokus pada mendorong pertumbuhan pelanggan baru melalui edukasi produk, promo sambutan, dan program pengenalan brand. Loyalists dan Champions perlu dipertahankan melalui penghargaan eksklusif, poin loyalitas, dan pengalaman personal. Sementara itu, Big Spenders dapat diarahkan untuk meningkatkan frekuensi belanja melalui rekomendasi produk dan penawaran time-limited
     """)
- 
+
 
