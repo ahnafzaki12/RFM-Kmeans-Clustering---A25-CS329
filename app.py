@@ -65,8 +65,8 @@ menu = st.sidebar.radio(
 if menu == "Dataset Overview":
     st.header("Dataset Preview")
     st.dataframe(df.head())
+    st.subheader("Dataset Preview")
     st.markdown("""
-    ### Dataset Description
     Dataset Online Retail II berisi seluruh transaksi dari sebuah perusahaan ritel daring yang berbasis di Inggris dan beroperasi tanpa toko fisik. Data mencakup periode 1 Desember 2009 hingga 9 Desember 2011, dengan fokus pada penjualan produk giftware (hadiah dan dekorasi) yang unik. Sebagian besar pelanggan merupakan wholesaler yang membeli dalam jumlah besar untuk kebutuhan bisnis.
     Struktur Atribut
     Dataset memiliki delapan atribut utama:
@@ -103,7 +103,7 @@ elif menu == "EDA Visualizations":
         st.pyplot(fig)
 
         st.markdown("""
-        **Intrepretasi Distribusi Quantity**  
+        *Intrepretasi Distribusi Quantity*  
           Distribusi Quantity pada diagram tampak right-skewed, dengan sebagian besar transaksi berada pada jumlah kecil (terutama 1–3 unit), sementara beberapa puncak jelas muncul pada nilai seperti 6, 12, dan 24 yang menunjukkan pola pembelian dalam paket standar. Nilai Quantity besar relatif jarang, sehingga distribusinya tetap wajar dan mencerminkan karakteristik umum transaksi retail, mayoritas pelanggan membeli sedikit, dan sebagian produk dijual dalam kelipatan tertentu.
         """)
 
