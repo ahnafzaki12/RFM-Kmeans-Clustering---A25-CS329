@@ -68,22 +68,15 @@ if menu == "Dataset Overview":
     st.markdown("""
     ### Dataset Description
     Dataset Online Retail II berisi seluruh transaksi dari sebuah perusahaan ritel daring yang berbasis di Inggris dan beroperasi tanpa toko fisik. Data mencakup periode 1 Desember 2009 hingga 9 Desember 2011, dengan fokus pada penjualan produk giftware (hadiah dan dekorasi) yang unik. Sebagian besar pelanggan merupakan wholesaler yang membeli dalam jumlah besar untuk kebutuhan bisnis.
-    ### Struktur Atribut
+    Struktur Atribut
     Dataset memiliki delapan atribut utama:
         - InvoiceNo - Nomor faktur unik untuk setiap transaksi. Jika diawali huruf "C", transaksi tersebut adalah pembatalan.
-
         - StockCode — Kode unik untuk setiap produk.
-
         - Description — Nama atau deskripsi produk.
-
         - Quantity — Jumlah unit produk yang dibeli dalam satu transaksi. Nilai negatif dapat muncul pada transaksi return/cancellation.
-
         - InvoiceDate — Tanggal dan waktu transaksi terjadi.
-
         - UnitPrice — Harga satuan produk dalam Pound Sterling (£).
-
         - CustomerID — ID pelanggan unik (hanya muncul untuk pelanggan teridentifikasi)
-
         - Country — Negara tempat pelanggan berada.
     Setiap cluster memerlukan strategi berbeda untuk retensi, upselling, dan nurturing pelanggan.
     """)
