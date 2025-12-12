@@ -14,9 +14,8 @@ st.set_page_config(page_title="Customer Segmentation MATCH NOTEBOOK",
 
 st.title("Customer Segmentation Dashboard")
 
-# =====================================================================
-# LOAD + PREPROCESSING IDENTIK NOTEBOOK
-# =====================================================================
+# LOAD 
+
 @st.cache_data
 def load_data():
     url = "https://drive.google.com/uc?id=1V2IdrRQ8XQmJlzb2PAlJw0ziJQg-13QW"
@@ -51,17 +50,15 @@ def load_data():
 
 df, df_clean_price = load_data()
 
-# =====================================================================
 # SIDEBAR
-# =====================================================================
+
 menu = st.sidebar.radio(
     "Navigation",
     ["Dataset Overview", "EDA Visualizations", "RFM Analysis", "Clustering", "Business Insights"]
 )
 
-# =====================================================================
 # PAGE 1 — DATASET OVERVIEW
-# =====================================================================
+
 if menu == "Dataset Overview":
     st.header("Dataset Preview")
     st.dataframe(df.head())
@@ -70,10 +67,10 @@ if menu == "Dataset Overview":
     Dataset Online Retail II berisi seluruh transaksi dari sebuah perusahaan ritel daring yang berbasis di Inggris dan beroperasi tanpa toko fisik. Data mencakup periode 1 Desember 2009 hingga 9 Desember 2011, dengan fokus pada penjualan produk giftware (hadiah dan dekorasi) yang unik. Sebagian besar pelanggan merupakan wholesaler yang membeli dalam jumlah besar untuk kebutuhan bisnis.
     Struktur Atribut
     Dataset memiliki delapan atribut utama:
-    - InvoiceNo - Nomor faktur unik untuk setiap transaksi. Jika diawali huruf "C", transaksi tersebut adalah pembatalan.
+    - InvoiceNo - Nomor faktur unik untuk setiap transaksi.
     - StockCode — Kode unik untuk setiap produk.
     - Description — Nama atau deskripsi produk.
-    - Quantity — Jumlah unit produk yang dibeli dalam satu transaksi. Nilai negatif dapat muncul pada transaksi return/cancellation.
+    - Quantity — Jumlah unit produk yang dibeli dalam satu transaksi.
     - InvoiceDate — Tanggal dan waktu transaksi terjadi.
     - UnitPrice — Harga satuan produk dalam Pound Sterling (£).
     - CustomerID — ID pelanggan unik (hanya muncul untuk pelanggan teridentifikasi)
@@ -81,9 +78,7 @@ if menu == "Dataset Overview":
     Setiap cluster memerlukan strategi berbeda untuk retensi, upselling, dan nurturing pelanggan.
     """)
 
-# =====================================================================
-# PAGE 2 — EDA VISUALIZATIONS (MATCH NOTEBOOK)
-# =====================================================================
+# PAGE 2 — EDA VISUALIZATIONS 
 elif menu == "EDA Visualizations":
 
     tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
@@ -172,9 +167,7 @@ elif menu == "EDA Visualizations":
         """)
 
 
-# =====================================================================
-# PAGE 3 — RFM ANALYSIS (MATCH NOTEBOOK)
-# =====================================================================
+# PAGE 3 — RFM ANALYSIS
 elif menu == "RFM Analysis":
 
     st.header("RFM Analysis")
@@ -226,12 +219,10 @@ elif menu == "RFM Analysis":
     Mayoritas pelanggan hanya bertransaksi 1–5 kali, sementara hanya sedikit pelanggan dengan frekuensi tinggi. Pola ini mencerminkan dominasi pelanggan non-loyal dan sedikit pelanggan sangat loyal yang membawa nilai penting bagi bisnis.
     ### Distribusi Monetary
     Nilai belanja total pelanggan didominasi oleh kelompok bernilai rendah–menengah. Hanya sebagian kecil pelanggan yang memberikan kontribusi pendapatan besar, menunjukkan adanya perilaku Pareto (20% pelanggan menghasilkan sebagian besar revenue).
-      
+
     """)
 
-# =====================================================================
-# PAGE 4 — CLUSTERING (MATCH NOTEBOOK)
-# =====================================================================
+# PAGE 4 — CLUSTERING
 elif menu == "Clustering":
 
     st.header("Clustering")
@@ -268,10 +259,8 @@ elif menu == "Clustering":
       Visualisasi cluster setelah PCA menunjukkan pemisahan yang jelas antara tiga kelompok pelanggan, di mana setiap cluster menempati area berbeda pada ruang PCA1 dan PCA2. Cluster berwarna ungu tampak merupakan kelompok terbesar, mencakup pelanggan dengan karakteristik RFM yang lebih umum. Cluster kuning dan hijau berada pada posisi berbeda dan lebih terfokus, menandakan segmentasi pelanggan berdasarkan pola perilaku yang cukup berbeda, seperti nilai belanja, frekuensi pembelian, atau tingkat aktivitas. Pemisahan yang rapi ini menunjukkan bahwa metode clustering berhasil mengidentifikasi tiga segmen pelanggan yang memiliki perbedaan nyata dalam perilaku mereka
     """)
 
+# PAGE 5 — BUSINESS INSIGHTS
 
-# =====================================================================
-# PAGE 5 — BUSINESS INSIGHTS (MATCH NOTEBOOK)
-# =====================================================================
 elif menu == "Business Insights":
 
     if "clustered" not in st.session_state:
@@ -282,7 +271,7 @@ elif menu == "Business Insights":
 
     st.header("Business Insights")
 
-    # ===== SEGMENTATION (exact Notebook logic) =====
+    # SEGMENTATION 
     rec_med = rfm["Recency"].median()
     freq_med = rfm["Frequency"].median()
     mon_med = rfm["Monetary"].median()
