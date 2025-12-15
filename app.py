@@ -14,7 +14,7 @@ st.set_page_config(page_title="Customer Segmentation MATCH NOTEBOOK",
 
 st.title("Customer Segmentation Dashboard")
 
-# LOAD 
+# LOAD
 
 @st.cache_data
 def load_data():
@@ -78,7 +78,7 @@ if menu == "Dataset Overview":
     Setiap cluster memerlukan strategi berbeda untuk retensi, upselling, dan nurturing pelanggan.
     """)
 
-# PAGE 2 — EDA VISUALIZATIONS 
+# PAGE 2 — EDA VISUALIZATIONS
 elif menu == "EDA Visualizations":
 
     tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
@@ -271,7 +271,7 @@ elif menu == "Business Insights":
 
     st.header("Business Insights")
 
-    # SEGMENTATION 
+    # SEGMENTATION
     rec_med = rfm["Recency"].median()
     freq_med = rfm["Frequency"].median()
     mon_med = rfm["Monetary"].median()
