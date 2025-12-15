@@ -4,7 +4,7 @@
 ![Machine Learning](https://img.shields.io/badge/Machine%20Learning-KMeans-green)
 ![Status](https://img.shields.io/badge/Status-Completed-success)
 
-## 📝 Deskripsi Singkat Proyek
+## Deskripsi Singkat Proyek
 
 Proyek ini bertujuan untuk membantu perusahaan ritel online mengoptimalkan strategi pemasaran mereka dengan beralih dari pendekatan *mass marketing* ke **pemasaran terpersonalisasi**. 
 
@@ -17,7 +17,7 @@ Dengan memanfaatkan data transaksi historis, kami menerapkan analisis **RFM (Rec
 * **Dimensionality Reduction:** Visualisasi persebaran cluster menggunakan **PCA (Principal Component Analysis)**.
 * **Business Insight:** Analisis karakteristik tiap segmen untuk rekomendasi strategi bisnis.
 
-## 👥 Anggota Tim
+## Anggota Tim
 
 * **Lingga Dwi Al Farizi** - Data Engineer & Preprocessing
 * **M Ahnaf Zaki** - Machine Learning Modeler
@@ -25,7 +25,7 @@ Dengan memanfaatkan data transaksi historis, kami menerapkan analisis **RFM (Rec
 
 ---
 
-## ⚙️ Petunjuk Setup Environment
+## Petunjuk Setup Environment
 
 Ikuti langkah-langkah berikut untuk menyiapkan lingkungan kerja lokal Anda agar dapat menjalankan proyek ini.
 
@@ -62,7 +62,7 @@ Pastikan Anda telah menginstal **Python 3.8+** dan **pip**.
 
 ---
 
-## 🚀 Cara Menjalankan Aplikasi
+## Cara Menjalankan Aplikasi
 
 Aplikasi ini berbentuk **Jupyter Notebook**. Berikut cara menjalankannya:
 
@@ -77,13 +77,11 @@ Aplikasi ini berbentuk **Jupyter Notebook**. Berikut cara menjalankannya:
 
 ---
 
-## 🤖 Tautan Model Machine Learning
+## Tautan Model Machine Learning
 
 Jika Anda ingin menggunakan model K-Means yang sudah dilatih tanpa menjalankan ulang proses training, Anda dapat mengunduhnya di bawah ini:
 
-* **Download Model (Pickle/Joblib):** [🔗 Klik Disini untuk Mengunduh Model (.pkl)](https://link-google-drive-atau-github-release-anda.com)
-* **Download Scaler:** [🔗 Klik Disini untuk Mengunduh Scaler (.pkl)](https://link-google-drive-atau-github-release-anda.com)
-
+* **Download Model (Pickle/Joblib):** https://drive.google.com/file/d/1uohp_MVHmlh2vpOtCbIVJLKDD1IUxiw-/view?usp=sharing
 ### Cara Memuat (Load) Model di Python:
 
 ```python
