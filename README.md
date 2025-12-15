@@ -19,9 +19,9 @@ Dengan memanfaatkan data transaksi historis, kami menerapkan analisis **RFM (Rec
 
 ## Anggota Tim
 
-* **Lingga Dwi Al Farizi** - Data Engineer & Preprocessing
-* **M Ahnaf Zaki** - Machine Learning Modeler
-* **Tiwi Shine Prameswari** - Business Analyst & Visualization
+* **Lingga Dwi Al Farizi** - Project Manager
+* **M Ahnaf Zaki** - Data Engineer
+* **Tiwi Shine Prameswari** - Machine Learning Engineer
 
 ---
 
@@ -81,7 +81,7 @@ Aplikasi ini berbentuk **Jupyter Notebook**. Berikut cara menjalankannya:
 
 Jika Anda ingin menggunakan model K-Means yang sudah dilatih tanpa menjalankan ulang proses training, Anda dapat mengunduhnya di bawah ini:
 
-* **Download Model (Pickle/Joblib):** https://drive.google.com/file/d/1uohp_MVHmlh2vpOtCbIVJLKDD1IUxiw-/view?usp=sharing
+* **Download Model (Pickle):** https://drive.google.com/file/d/1uohp_MVHmlh2vpOtCbIVJLKDD1IUxiw-/view?usp=sharing
 ### Cara Memuat (Load) Model di Python:
 
 ```python
