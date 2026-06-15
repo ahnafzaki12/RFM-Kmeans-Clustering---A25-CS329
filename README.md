@@ -17,12 +17,6 @@ Dengan memanfaatkan data transaksi historis, kami menerapkan analisis **RFM (Rec
 * **Dimensionality Reduction:** Visualisasi persebaran cluster menggunakan **PCA (Principal Component Analysis)**.
 * **Business Insight:** Analisis karakteristik tiap segmen untuk rekomendasi strategi bisnis.
 
-## Anggota Tim
-
-* **Lingga Dwi Al Farizi** - Project Manager
-* **M Ahnaf Zaki** - Data Engineer
-* **Tiwi Shine Prameswari** - Machine Learning Engineer
-
 ---
 
 ## Petunjuk Setup Environment
